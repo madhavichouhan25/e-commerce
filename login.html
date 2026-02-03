@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Farmer Login</title>
+  <!-- Link to external CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="navbar">
+  <div class="logo">AgroFarm</div>
+  <ul class="nav-links">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Product</a></li>
+    <li><a href="#">Gallery</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</nav>
+<div class="wrapper">
+  <div class="auth-card">
+    <h2>🌱 Welcome!</h2>
+   <form id="loginForm">
+    <label for="username"></label>
+    <input type="text" id="username" name="username" placeholder="Enter your name" required>
+
+    <label for="password"></label>
+    <input type="password" id="password" name="Password"placeholder="Enter your password" required>
+
+    <button type="submit">Login</button>
+   </form>
+
+    <p>New user? <a href="register.html">Create Account</a></p>
+    <p id="error" style="color:red;"></p>
+    </div>
+  </div>
+  <script src="login.js"></script>
+</body>
+</html>

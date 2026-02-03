@@ -1,12 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Farming Products Store</title>
+<link rel="stylesheet" href="index.css">
 </head>
 <body>
-  <h1> hie Aastha </h1>
-  
+
+<header>
+  <h1>Farming Products Store</h1>
+  <input type="text" id="search" placeholder="Search products...">
+  <a href="cart.html" id="cart-link">Cart</a>
+</header>
+
+<!-- Categories -->
+<div id="categories">
+  <button onclick="filterCategory('all')">All</button>
+  <button onclick="filterCategory('seeds')">Seeds</button>
+  <button onclick="filterCategory('fertilizers')">Fertilizers</button>
+  <button onclick="filterCategory('tools')">Tools</button>
+  <button onclick="filterCategory('plants')">Plants</button>
+</div>
+
+<!-- Product Listing -->
+<div id="product-list">
+  <div class="product" data-category="seeds">
+    <img src="images/wheat.jpg" alt="Wheat Seeds">
+    <h3>Wheat Seeds</h3>
+    <p>Price: $10/kg</p>
+    <button onclick="addToCart('Wheat Seeds', 10)">Add to Cart</button>
+  </div>
+
+  <div class="product" data-category="seeds">
+    <img src="images/rice.jpg" alt="Rice Seeds">
+    <h3>Rice Seeds</h3>
+    <p>Price: $12/kg</p>
+    <button onclick="addToCart('Rice Seeds', 12)">Add to Cart</button>
+  </div>
+
+  <div class="product" data-category="fertilizers">
+    <img src="images/fertilizer.jpg" alt="Fertilizer">
+    <h3>NPK Fertilizer</h3>
+    <p>Price: $15/bag</p>
+    <button onclick="addToCart('NPK Fertilizer', 15)">Add to Cart</button>
+  </div>
+
+  <div class="product" data-category="tools">
+    <img src="images/tractor.jpg" alt="Tractor">
+    <h3>Tractor</h3>
+    <p>Price: $5000</p>
+    <button onclick="addToCart('Tractor', 5000)">Add to Cart</button>
+  </div>
+
+  <div class="product" data-category="plants">
+    <img src="images/sapling.jpg" alt="Sapling">
+    <h3>Fruit Sapling</h3>
+    <p>Price: $5</p>
+    <button onclick="addToCart('Fruit Sapling', 5)">Add to Cart</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
