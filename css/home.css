@@ -195,3 +195,13 @@
     margin-top: 10px;
   }
 }
+.header_right {
+  color: #ffffff;
+  text-align: right;
+  font-size: 14px;
+}
+
+.phone_no {
+  color: #ffeb3b;
+  font-weight: bold;
+}
