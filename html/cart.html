@@ -2,65 +2,37 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Cart</title>
+  <title>Your Cart</title>
   <link rel="stylesheet" href="../css/cart.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-
 <body>
 
-<h2>🛒 My Cart</h2>
+<header class="cart-header">
+  <h1><i class="fas fa-shopping-basket"></i> My Cart</h1>
+  <a href="product.html" class="back-btn">← Continue Shopping</a>
+</header>
 
-<div id="cart-items"></div>
-<h3 id="total"></h3>
+<main class="cart-container">
+  <table>
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Price</th>
+        <th>Qty</th>
+        <th>Total</th>
+        <th>Remove</th>
+      </tr>
+    </thead>
+    <tbody id="cart-items"></tbody>
+  </table>
 
-<button onclick="checkout()">Checkout</button>
+  <div class="cart-summary">
+    <h2>Total Amount: $<span id="grand-total">0</span></h2>
+    <button class="checkout-btn">Checkout</button>
+  </div>
+</main>
 
-<script>
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
-  let cartDiv = document.getElementById("cart-items");
-  let totalDiv = document.getElementById("total");
-
-  function renderCart() {
-    cartDiv.innerHTML = "";
-    let total = 0;
-
-    if (cart.length === 0) {
-      cartDiv.innerHTML = "<p>Your cart is empty 🛒</p>";
-      totalDiv.innerText = "";
-      return;
-    }
-
-    cart.forEach((item, index) => {
-      let itemTotal = item.price * item.quantity;
-      total += itemTotal;
-
-      cartDiv.innerHTML += `
-        <div class="cart-row">
-          <span>${item.name}</span>
-          <span>$${item.price} × ${item.quantity}</span>
-          <strong>$${itemTotal}</strong>
-          <button class="remove-btn" onclick="removeItem(${index})">✖</button>
-        </div>
-      `;
-    });
-
-    totalDiv.innerText = "Total Amount: $" + total;
-    localStorage.setItem("cart", JSON.stringify(cart));
-  }
-
-  function removeItem(index) {
-    cart.splice(index, 1);
-    renderCart();
-  }
-
-  function checkout() {
-    localStorage.removeItem("cart");
-    alert("Order placed successfully ✅");
-    location.reload();
-  }
-
-  renderCart();
-</script>
-
+<script src="../javascript/cart.js"></script>
 </body>
 </html>
