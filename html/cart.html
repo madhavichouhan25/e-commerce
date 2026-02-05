@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cart</title>
+  <link rel="stylesheet" href="../css/cart.css">
+</head>
+
+<body>
+
+<h2>🛒 My Cart</h2>
+
+<div id="cart-items"></div>
+<h3 id="total"></h3>
+
+<button onclick="checkout()">Checkout</button>
+
+<script>
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let cartDiv = document.getElementById("cart-items");
+  let totalDiv = document.getElementById("total");
+
+  function renderCart() {
+    cartDiv.innerHTML = "";
+    let total = 0;
+
+    if (cart.length === 0) {
+      cartDiv.innerHTML = "<p>Your cart is empty 🛒</p>";
+      totalDiv.innerText = "";
+      return;
+    }
+
+    cart.forEach((item, index) => {
+      let itemTotal = item.price * item.quantity;
+      total += itemTotal;
+
+      cartDiv.innerHTML += `
+        <div class="cart-row">
+          <span>${item.name}</span>
+          <span>$${item.price} × ${item.quantity}</span>
+          <strong>$${itemTotal}</strong>
+          <button class="remove-btn" onclick="removeItem(${index})">✖</button>
+        </div>
+      `;
+    });
+
+    totalDiv.innerText = "Total Amount: $" + total;
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }
+
+  function removeItem(index) {
+    cart.splice(index, 1);
+    renderCart();
+  }
+
+  function checkout() {
+    localStorage.removeItem("cart");
+    alert("Order placed successfully ✅");
+    location.reload();
+  }
+
+  renderCart();
+</script>
+
+</body>
+</html>

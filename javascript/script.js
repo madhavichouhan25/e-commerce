@@ -1,60 +1,54 @@
-// Category filtering
+// ================================
+// FILTER CATEGORY
+// ================================
 function filterCategory(category) {
-  const products = document.querySelectorAll('.product');
+  const products = document.querySelectorAll(".product");
   products.forEach(product => {
-    if(category === 'all' || product.dataset.category === category) {
-      product.style.display = 'block';
-    } else {
-      product.style.display = 'none';
-    }
+    product.style.display =
+      category === "all" || product.dataset.category === category
+        ? "block"
+        : "none";
   });
 }
 
-// Search functionality
-const searchInput = document.getElementById('search');
-if(searchInput){
-  searchInput.addEventListener('keyup', function() {
-    const query = searchInput.value.toLowerCase();
-    const products = document.querySelectorAll('.product');
-    products.forEach(product => {
-      const title = product.querySelector('h3').textContent.toLowerCase();
-      if(title.includes(query)) {
-        product.style.display = 'block';
-      } else {
-        product.style.display = 'none';
-      }
-    });
-  });
-}
-
-// Simple cart system (using localStorage)
+// ================================
+// ADD TO CART (with quantity)
+// ================================
 function addToCart(name, price) {
-  let cart = JSON.parse(localStorage.getItem('cart')) || [];
-  cart.push({name, price});
-  localStorage.setItem('cart', JSON.stringify(cart));
-  alert(name + " added to cart!");
-}
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-// Display cart items on cart.html
-const cartDiv = document.getElementById('cart-items');
-if(cartDiv){
-  let cart = JSON.parse(localStorage.getItem('cart')) || [];
-  cartDiv.innerHTML = "";
-  if(cart.length === 0){
-    cartDiv.innerHTML = "<p>Your cart is empty</p>";
+  let existing = cart.find(item => item.name === name);
+
+  if (existing) {
+    existing.quantity += 1;
   } else {
-    let total = 0;
-    cart.forEach(item => {
-      cartDiv.innerHTML += `<p>${item.name} - $${item.price}</p>`;
-      total += item.price;
+    cart.push({
+      name: name,
+      price: price,
+      quantity: 1
     });
-    cartDiv.innerHTML += `<hr><p>Total: $${total}</p>`;
   }
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+  alert(name + " added to cart 🛒");
 }
 
-// Checkout
-function checkout(){
-  localStorage.removeItem('cart');
-  alert("Thank you for your purchase!");
-  location.reload();
+// ================================
+// MAKE FUNCTIONS GLOBAL (IMPORTANT)
+// ================================
+window.addToCart = addToCart;
+window.filterCategory = filterCategory;
+
+// ================================
+// SEARCH
+// ================================
+const searchInput = document.getElementById("search");
+if (searchInput) {
+  searchInput.addEventListener("keyup", () => {
+    const query = searchInput.value.toLowerCase();
+    document.querySelectorAll(".product").forEach(product => {
+      const title = product.querySelector("h3").innerText.toLowerCase();
+      product.style.display = title.includes(query) ? "block" : "none";
+    });
+  });
 }
