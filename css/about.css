@@ -1,0 +1,138 @@
+/* ================================
+   GLOBAL STYLES
+================================ */
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: rgb(120, 241, 120);
+}
+
+/* ================================
+   ABOUT SECTION
+================================ */
+.about-agri {
+  position: relative;              /* Needed for top button / arrow */
+  margin: 100px;
+  padding: 60px 10%;
+  background-color: #b1f1bd;
+  border-radius: 20px;
+}
+
+/* ================================
+   CONTAINER
+================================ */
+.about-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+/* ================================
+   TEXT AREA
+================================ */
+.about-text {
+  flex: 1;
+}
+
+.about-text h2 {
+  font-size: 36px;
+  color: #2e7d32;
+  margin-bottom: 20px;
+}
+
+.about-text p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+/* ================================
+   LEARN MORE BUTTON
+================================ */
+.about-btn {
+  display: inline-block;
+  padding: 12px 25px;
+  background-color: #2e7d32;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.about-btn:hover {
+  background-color: #256428;
+}
+
+/* ================================
+   IMAGE AREA
+================================ */
+.about-image {
+  flex: 1;
+  text-align: center;
+}
+
+.about-image img {
+  width: 100%;
+  max-width: 350px;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* ================================
+   OPTION 1: BACK TO HOME BUTTON
+================================ */
+.back-home-btn {
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  padding: 10px 18px;
+  background-color: #1b5e20;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.back-home-btn:hover {
+  background-color: #2e7d32;
+}
+
+/* ================================
+   OPTION 2: BACK ARROW ICON
+================================ */
+.back-arrow {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  width: 45px;
+  height: 45px;
+  background-color: #1b5e20;
+  color: #fff;
+  font-size: 24px;
+  text-align: center;
+  line-height: 45px;
+  border-radius: 50%;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.back-arrow:hover {
+  background-color: #2e7d32;
+}
+
+/* ================================
+   RESPONSIVE DESIGN
+================================ */
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-agri {
+    margin: 40px 20px;
+    padding: 40px 20px;
+  }
+}
