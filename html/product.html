@@ -4,27 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Farming Products Store</title>
+
+    <!-- CSS -->
     <link rel="stylesheet" href="../css/product.css">
+
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/dist/css/all.min.css">
 </head>
 <body>
+    <header id="full_nav">
+  <div class="header">
+    <div class="container">
+      <nav class="navbar">
 
-<header class="main-header">
-    <div class="header-content">
-        <h1>Organic <span>Products</span></h1>
-        <div class="header-actions">
-            <input type="text" id="search" placeholder="Search items...">
-            <a href="cart.html" id="cart-link"><i class="fas fa-shopping-basket"></i> Cart</a>
+        <div class="logo">AgroFarm</div>
+
+        <!-- Hamburger -->
+        <div class="menu-toggle" id="menu-toggle">
+          <i class="fas fa-bars"></i>
         </div>
-    </div>
-</header>
 
+        <ul class="nav-links" id="nav-links">
+          <li><a href="home.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="product.html">Product</a></li>
+          <li><a href="login.html">Login</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+
+        <!-- Search + Cart -->
+        <div class="nav-actions">
+          <input type="text" id="search" placeholder="Search products...">
+
+          <a href="cart.html" class="cart-btn">
+            Cart
+            <i class="fas fa-shopping-basket"></i>
+          </a>
+
+          <div class="header_right">
+            <span>Call us!</span>
+            <span class="phone_no">+91 6857412368</span>
+          </div>
+        </div>
+
+      </nav>
+    </div>
+  </div>
+</header>
+<!-- ================= MAIN ================= -->
 <main class="container">
+
     <div class="section-title">
         <h2>Featured Products</h2>
-        <div class="underline"><span></span><i class="fas fa-leaf"></i><span></span></div>
+        <div class="underline">
+            <span></span>
+            <i class="fas fa-leaf"></i>
+            <span></span>
+        </div>
     </div>
 
+    <!-- Categories -->
     <div id="categories">
         <button class="filter-btn active" onclick="filterCategory('all')">All</button>
         <button class="filter-btn" onclick="filterCategory('seeds')">Seeds</button>
@@ -33,7 +72,10 @@
         <button class="filter-btn" onclick="filterCategory('plants')">Plants</button>
     </div>
 
+    <!-- Product List -->
     <div id="product-list">
+
+        <!-- Product 1 -->
         <div class="product-card" data-category="seeds">
             <div class="badge">15% off</div>
             <div class="img-container">
@@ -49,6 +91,7 @@
             </div>
         </div>
 
+        <!-- Product 2 -->
         <div class="product-card" data-category="seeds">
             <div class="img-container">
                 <img src="../image/rice.jpg" alt="Rice Seeds">
@@ -63,6 +106,7 @@
             </div>
         </div>
 
+        <!-- Product 3 -->
         <div class="product-card" data-category="fertilizers">
             <div class="badge">Sale</div>
             <div class="img-container">
@@ -78,6 +122,7 @@
             </div>
         </div>
 
+        <!-- Product 4 -->
         <div class="product-card" data-category="tools">
             <div class="img-container">
                 <img src="../image/tractor image.png" alt="Tractor">
@@ -92,9 +137,10 @@
             </div>
         </div>
 
+        <!-- Product 5 -->
         <div class="product-card" data-category="plants">
             <div class="img-container">
-                <img src="../image/istockphoto-2225353966-612x612.webp" alt="plants">
+                <img src="../image/istockphoto-2225353966-612x612.webp" alt="Plants">
             </div>
             <div class="product-info">
                 <p class="category-name">Plants</p>
@@ -105,9 +151,12 @@
                 </button>
             </div>
         </div>
+
     </div>
 </main>
 
+<!-- JS -->
 <script src="../javascript/script.js" type="module"></script>
+
 </body>
 </html>

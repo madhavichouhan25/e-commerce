@@ -88,3 +88,29 @@ function updateCartCounter() {
 document.addEventListener("DOMContentLoaded", () => {
   updateCartCounter();
 });
+// =======================
+// ADD TO CART FUNCTION
+// =======================
+
+// localStorage se cart lao
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+function addToCart(name, price) {
+  // check product already hai ya nahi
+  const existingProduct = cart.find(item => item.name === name);
+
+  if (existingProduct) {
+    existingProduct.qty += 1;
+  } else {
+    cart.push({
+      name: name,
+      price: price,
+      qty: 1
+    });
+  }
+
+  // localStorage me save
+  localStorage.setItem("cart", JSON.stringify(cart));
+
+  alert(name + " added to cart 🛒");
+}

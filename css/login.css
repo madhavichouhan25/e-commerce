@@ -60,5 +60,78 @@ body {
 .auth-card a:hover {
   text-decoration: underline;
 }
+.header {
+  background: rgba(219, 209, 209, 0.35); /* transparent overlay */
+  backdrop-filter: blur(6px);
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+}
+
+/* Logo */
+.logo {
+  color: #58434367;
+  font-size: 28px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* Nav links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 28px;
+}
+
+/* Nav anchor */
+.nav-links li a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  position: relative;
+  padding-bottom: 5px;
+  transition: color 0.3s ease;
+}
+
+/* Hover underline animation */
+.nav-links li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: #c8e6c9;
+  transition: width 0.3s ease;
+}
+
+.nav-links li a:hover::after {
+  width: 100%;
+}
+
+.nav-links li a:hover {
+  color: #c8e6c9;
+}
+.nav-links {
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 10px;
+  }
+.header_right {
+  color: #ffffff;
+  text-align: right;
+  font-size: 14px;
+}
+
+.phone_no {
+  color: #ffeb3b;
+  font-weight: bold;
+}
 
 

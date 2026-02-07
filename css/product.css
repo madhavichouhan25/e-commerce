@@ -211,14 +211,194 @@ body {
 .add-to-cart-btn i {
     margin-right: 8px;
 }
+.header {
+  background: rgba(0, 0, 0, 0.35); /* transparent overlay */
+  backdrop-filter: blur(6px);
+}
 
-/* Mobile Responsive */
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+}
+
+/* Logo */
+.logo {
+  color: #ffffff;
+  font-size: 28px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+.menu-toggle {
+  display: none;
+  font-size: 22px;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Nav links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 28px;
+}
+
+/* Nav anchor */
+.nav-links li a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  position: relative;
+  padding-bottom: 5px;
+  transition: color 0.3s ease;
+}
+
+/* Hover underline animation */
+.nav-links li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: #c8e6c9;
+  transition: width 0.3s ease;
+}
+
+.nav-links li a:hover::after {
+  width: 100%;
+}
+
+.nav-links li a:hover {
+  color: #c8e6c9;
+}
+
+
+
+.header_right {
+  color: #ffffff;
+  text-align: right;
+  font-size: 14px;
+}
+
+.phone_no {
+  color: #ffeb3b;
+  font-weight: bold;
+ 
+}
+/* =========================
+   NAV ACTIONS (Search + Cart + Call)
+========================= */
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* ================= SEARCH ================= */
+#search {
+  width: 220px;
+  padding: 8px 14px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+}
+
+/* ================= CART BUTTON ================= */
+.cart-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #78a206;
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.cart-btn i {
+  font-size: 15px;
+}
+
+.cart-btn:hover {
+  background: #618205;
+  transform: translateY(-1px);
+}
+
+/* ================= CALL US ================= */
+.header_right {
+  color: #fff;
+  font-size: 13px;
+  line-height: 1.2;
+  text-align: right;
+}
+
+.phone_no {
+  color: #ffeb3b;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
 @media (max-width: 768px) {
-    .header-content {
-        flex-direction: column;
-        gap: 15px;
-    }
-    #search {
-        width: 100%;
-    }
+
+  /* Navbar layout */
+  .navbar {
+    flex-wrap: wrap;
+    padding: 12px 20px;
+  }
+
+  /* Show hamburger */
+  .menu-toggle {
+    display: block;
+  }
+
+  /* Hide nav links by default */
+  .nav-links {
+    width: 100%;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.95);
+    position: absolute;
+    top: 65px;
+    left: 0;
+    display: none;
+    z-index: 999;
+  }
+
+  /* When active */
+  .nav-links.show {
+    display: flex;
+  }
+
+  .nav-links li {
+    text-align: center;
+    padding: 12px 0;
+  }
+
+  /* Nav actions stay visible */
+  .nav-actions {
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+
+  /* Search smaller */
+  #search {
+    width: 140px;
+  }
+
+  /* Hide call us on mobile */
+  .header_right {
+    display: none;
+  }
 }
