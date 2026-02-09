@@ -60,8 +60,17 @@ body {
 .auth-card a:hover {
   text-decoration: underline;
 }
+#full_nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+/* Inner header */
 .header {
-  background: rgba(219, 209, 209, 0.35); /* transparent overlay */
+  background: rgba(0, 0, 0, 0.35); /* transparent overlay */
   backdrop-filter: blur(6px);
 }
 
@@ -75,7 +84,7 @@ body {
 
 /* Logo */
 .logo {
-  color: #58434367;
+  color: #ffffff;
   font-size: 28px;
   font-weight: bold;
   letter-spacing: 1px;
@@ -118,11 +127,20 @@ body {
 .nav-links li a:hover {
   color: #c8e6c9;
 }
-.nav-links {
+
+/* Responsive navbar */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    padding: 15px 20px;
+  }
+
+  .nav-links {
     flex-direction: column;
     gap: 15px;
     margin-top: 10px;
   }
+}
 .header_right {
   color: #ffffff;
   text-align: right;
@@ -133,5 +151,3 @@ body {
   color: #ffeb3b;
   font-weight: bold;
 }
-
-
